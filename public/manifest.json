@@ -1,0 +1,24 @@
+{
+  "id": "jaicuts-pwa",
+  "name": "JAI CUTS Portfolio",
+  "short_name": "JAI CUTS",
+  "start_url": "./?utm_source=pwa",
+  "display": "standalone",
+  "background_color": "#050508",
+  "theme_color": "#a855f7",
+  "description": "Premium Video Editing Portfolio",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://img.icons8.com/color/512/adobe-premiere-pro.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/vite.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

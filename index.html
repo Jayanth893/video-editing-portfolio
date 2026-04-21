@@ -2,11 +2,22 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#c084fc" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JAI CUTS | Professional Video Editor Portfolio</title>
     <meta name="description" content="JAI CUTS - A professional video editor specializing in cinematic storytelling, high-retention Reels, YouTube content, and commercial ads." />
     <meta name="keywords" content="JAI CUTS, video editor, cinematic editing, youtube editor, reels editing, motion graphics, video portfolio" />
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(reg => console.log('SW Registered!', reg))
+            .catch(err => console.log('SW Fail:', err));
+        });
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

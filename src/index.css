@@ -1,16 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
 
 :root {
-  --bg-dark: #07070a;
-  --bg-darker: #040406;
+  --bg-dark: #050508;
+  --bg-darker: #020204;
   --bg-card: rgba(20, 20, 25, 0.7);
   --text-light: #f8fafc;
   --text-muted: #94a3b8;
-  --accent-purple: #c084fc;
-  --accent-purple-glow: rgba(192, 132, 252, 0.5);
-  --accent-blue: #60a5fa;
-  --accent-blue-glow: rgba(96, 165, 250, 0.5);
-  --accent-cyan: #22d3ee;
+  --accent-purple: #a855f7;
+  --accent-purple-glow: rgba(168, 85, 247, 0.4);
+  --accent-blue: #3b82f6;
+  --accent-blue-glow: rgba(59, 130, 246, 0.4);
+  --accent-cyan: #06b6d4;
+  --accent-cyan-glow: rgba(6, 182, 212, 0.4);
+  --accent-indigo: #6366f1;
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-hover: rgba(255, 255, 255, 0.07);
   --transition-smooth: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -30,10 +35,11 @@ body {
   color: var(--text-light);
   overflow-x: hidden;
   line-height: 1.6;
+  font-weight: 400;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.2;
 }
 
@@ -63,14 +69,14 @@ section {
 }
 
 .section-title {
-  font-size: 3rem;
+  font-size: 3.5rem;
   margin-bottom: 4rem;
   text-align: center;
   background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  font-weight: 800;
+  letter-spacing: -1px;
 }
 
 /* Animations */
@@ -347,8 +353,8 @@ nav {
 
 .logo {
   font-size: 1.5rem;
-  font-weight: 800;
-  letter-spacing: 2px;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
 .nav-links {
@@ -358,10 +364,9 @@ nav {
 
 .nav-links a {
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 500;
   transition: color 0.3s;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
 .nav-links a:hover {
@@ -407,9 +412,8 @@ nav {
 .btn {
   padding: 15px 35px;
   border-radius: 50px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  font-weight: 600;
+  letter-spacing: 1px;
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   border: none;
   display: inline-block;
@@ -428,16 +432,26 @@ nav {
 }
 
 .btn-secondary {
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.1);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
   color: #fff;
+  backdrop-filter: blur(10px);
 }
 
 .btn-secondary:hover {
-  background: rgba(255,255,255,0.05);
+  background: var(--glass-hover);
   border-color: var(--accent-cyan);
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(34, 211, 238, 0.1);
+  box-shadow: 0 10px 30px var(--accent-cyan-glow);
+}
+
+.float {
+  animation: floatAnim 3s infinite ease-in-out;
+}
+
+@keyframes floatAnim {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 /* Portfolio Hover Effects */
@@ -640,19 +654,19 @@ section:hover .section-title::after {
 }
 
 .hero h1 {
-  font-size: clamp(3rem, 6vw, 6rem);
+  font-size: clamp(3rem, 7vw, 6rem);
   margin-bottom: 20px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  font-weight: 700;
+  letter-spacing: -1px;
 }
 
 .hero p {
-  font-size: clamp(1.2rem, 3vw, 1.8rem);
-  color: var(--text-light);
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  color: var(--text-muted);
   max-width: 800px;
   margin: 0 auto 40px;
-  letter-spacing: 2px;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  letter-spacing: 1px;
+  font-weight: 400;
 }
 
 .hero-buttons {
@@ -886,7 +900,7 @@ section:hover .section-title::after {
 .service-card h3 {
   font-size: 1.5rem;
   color: #fff;
-  letter-spacing: 1px;
+  font-weight: 600;
 }
 
 .service-card p {
@@ -935,6 +949,7 @@ section:hover .section-title::after {
   font-size: 2rem;
   margin-bottom: 20px;
   color: var(--accent-purple);
+  font-weight: 700;
 }
 
 .about-text p {
@@ -987,12 +1002,39 @@ section:hover .section-title::after {
 .about-image {
   flex: 1;
   min-width: 300px;
+  max-width: 500px;
   position: relative;
+  aspect-ratio: 4/5;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  overflow: hidden;
 }
 
 .about-image img {
   border-radius: 20px;
   box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-text-container {
+  flex: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.stat-card {
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: default;
+}
+
+.stat-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: var(--accent-cyan) !important;
+  box-shadow: 0 15px 40px rgba(34, 211, 238, 0.1);
 }
 
 .about-image::after {
@@ -1188,8 +1230,8 @@ footer {
   color: #fff;
   margin-bottom: 25px;
   font-size: 1.2rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
 .footer-desc {
@@ -1292,9 +1334,62 @@ footer {
   }
 }
 
+.mobile-menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  z-index: 10001;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 80%;
+  max-width: 300px;
+  height: 100%;
+  background: rgba(7, 7, 10, 0.98);
+  backdrop-filter: blur(10px);
+  z-index: 10000;
+  transition: right 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.mobile-menu.open {
+  right: 0;
+}
+
+.mobile-menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  text-align: center;
+}
+
+.mobile-menu-links a {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  transition: all 0.3s;
+}
+
+.mobile-menu-links a.active {
+  color: var(--accent-purple);
+  transform: scale(1.1);
+}
+
 @media (max-width: 768px) {
   .nav-links {
-    display: none; /* Handle mobile menu properly in a real app, keeping simple for now */
+    display: none;
+  }
+  
+  .mobile-menu-toggle {
+    display: block;
   }
 }
 
@@ -1509,7 +1604,59 @@ footer {
   animation: line-reveal-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-/* Portfolio Filtering Micro-Animations */
-.portfolio-item-container {
-  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+/* --- Ultra Visual Effects --- */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 99998;
+  opacity: 0.03;
+  background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+}
+
+.scanline-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 99997;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+  background-size: 100% 4px, 3px 100%;
+  opacity: 0.2;
+}
+
+.viewfinder-corner {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-color: var(--accent-purple);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.corner-tl { top: 40px; left: 40px; border-top: 1px solid; border-left: 1px solid; }
+.corner-tr { top: 40px; right: 40px; border-top: 1px solid; border-right: 1px solid; }
+.corner-bl { bottom: 40px; left: 40px; border-bottom: 1px solid; border-left: 1px solid; }
+.corner-br { bottom: 40px; right: 40px; border-bottom: 1px solid; border-right: 1px solid; }
+
+.glitch-hover:hover {
+  animation: glitch-skew 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+}
+
+@keyframes glitch-skew {
+  0% { transform: skew(0deg); }
+  20% { transform: skew(2deg); }
+  40% { transform: skew(-2deg); }
+  60% { transform: skew(1deg); }
+  80% { transform: skew(-1deg); }
+  100% { transform: skew(0deg); }
+}
+
+section {
+  position: relative;
 }
